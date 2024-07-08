@@ -138,4 +138,19 @@ public class Main {
         }
     }
 
+    /**
+     * Reverse array string
+     *
+     *
+     * @param array
+     * @return reversed array
+     */
+    private static void reverseStringArray(String[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            String temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
+    }
+
 }
