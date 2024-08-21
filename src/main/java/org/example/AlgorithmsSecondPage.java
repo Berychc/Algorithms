@@ -1,9 +1,8 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import org.example.entity.ListNode;
+
+import java.util.*;
 
 public class AlgorithmsSecondPage {
 
@@ -61,6 +60,65 @@ public class AlgorithmsSecondPage {
 
         System.out.println(mergeList);
     }
+
+    // Объединение отсортированного списка
+    public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                current.next = list1;
+                list1 = list1.next;
+            } else {
+                current.next = list2;
+                list2 = list2.next;
+            }
+            current = current.next;
+        }
+
+        if (list1 != null) {
+            current.next = list1;
+        } else {
+            current.next = list2;
+        }
+        return dummy.next;
+    }
+
+    public ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+
+        if (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                list1.next = mergeTwoLists2(list1.next, list2);
+                return list1;
+            } else {
+                list2.next = mergeTwoLists2(list1, list2.next);
+                return list2;
+            }
+        }
+        if (list1 == null)
+            return list2;
+        return list1;
+    }
+
+
+    // Допустимые скобки
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            if (c == '(')
+                stack.push(')');
+            else if (c == '{')
+                stack.push('}');
+            else if (c == '[')
+                stack.push(']');
+            else if (stack.isEmpty() || stack.pop() != c)
+                return false;
+        }
+        return stack.isEmpty();
+    }
+
 
     // Удалить дубликаты из отсортированного массива
     public int removeDuplicates(int[] nums) {
