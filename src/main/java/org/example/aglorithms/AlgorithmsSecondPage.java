@@ -1,6 +1,6 @@
-package org.example;
+package org.example.aglorithms;
 
-import org.example.entity.ListNode;
+import org.example.aglorithms.entity.ListNode;
 
 import java.util.*;
 
