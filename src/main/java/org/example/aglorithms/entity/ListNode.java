@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.aglorithms.entity;
 
 public class ListNode {
     public int val;
