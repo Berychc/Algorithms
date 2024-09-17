@@ -1,4 +1,4 @@
-package org.example.grokkaiAlgorithms.grokkai2_5;
+package org.example.grokkaiAlgorithms.chapter_second.grokkai2_5;
 
 import java.util.LinkedList;
 import java.util.List;

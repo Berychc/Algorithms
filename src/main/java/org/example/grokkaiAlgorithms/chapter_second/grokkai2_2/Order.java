@@ -1,4 +1,4 @@
-package org.example.grokkaiAlgorithms.grokkai2_2;
+package org.example.grokkaiAlgorithms.chapter_second.grokkai2_2;
 
 public class Order {
 
