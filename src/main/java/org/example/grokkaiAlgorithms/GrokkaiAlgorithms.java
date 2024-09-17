@@ -1,115 +1,16 @@
 package org.example.grokkaiAlgorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class GrokkaiAlgorithms {
 
-    public static int binarySearch() {
-        String[] names = new String[128];
-        String target = "Veselov";
-
-        int low = 0;
-        int high = names.length - 1;
-        int count = 0;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            count++;
-
-            if (names[mid].equals(target)) {
-                System.out.println(mid);
-                break;
-            } else if (names[mid].compareTo(target) < 0) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
+    public static int sum(int[] arr) {
+        int total = 0;
+        for (int x : arr) {
+            total += x;
         }
-        return -1;
-    }
-
-    public static int binarySearch2(int[] list, int item) {
-        int low = 0;
-        int high = list.length - 1;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            int guess = list[mid];
-
-            if (guess == item) {
-                return mid;
-            } else if (guess < item) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * Известна фамилия, нужно найти номер в телефонной книге
-     * @param phoneBook
-     * @param name
-     */
-    public static int binarySearch3(String[] phoneBook, String name) {
-        int low = 0;
-        int high = phoneBook.length - 1;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            String guess = phoneBook[mid].split(" ")[0];
-
-            if (guess.equals(name)) {
-                return mid;
-            } else if (guess.compareTo(name) < 0) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-
-        }
-        return -1;
-    }
-
-    /**
-     * Известен номер нужно найти фамилию в телефонной книге.
-     * (Нужно провести поиск по всех книге)
-     */
-    public static String findSurname(String[] phoneBook, String phoneNumber) {
-        for (String entry : phoneBook) {
-            String[] parts = entry.split(" ");
-            if (parts[1].equals(phoneNumber)) {
-                return parts[0];
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Нужно прочитать телефоны всех людей в телефонной книге
-     */
-    public static void readPhoneNumbers(String[] phoneBook) {
-        for (String entry : phoneBook) {
-            String[] parts = entry.split(" ");
-            System.out.println("Phone number: " + parts[1]);
-        }
-    }
-
-    /**
-     * Нужно прочитать телефоны всех людей фамилии которых начинаются с буквы "A"
-     * Вопрос с подвохом! В нем задействованы концепции.
-     */
-    public static void readPhoneNumbersStartingWithA(String[] phoneBook) {
-        for (String entry : phoneBook) {
-            String[] parts = entry.split(" ");
-            if (parts[0].startsWith("A")) {
-                System.out.println("Phone number: " + parts[1]);
-            }
-        }
+        return total;
     }
 
 
@@ -316,4 +217,69 @@ public class GrokkaiAlgorithms {
             System.out.println();
         }
     }
+
+
+    /**
+     * Пример хэш таблицы и ее вывод
+     */
+    void hashTableExample() {
+        Map<String, Double> book = new HashMap<>();
+
+        book.put("apple", 0.67);
+        book.put("milk", 1.49);
+        book.put("avocado", 1.49);
+
+        for (Map.Entry<String, Double> entry : book.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+
+    /**
+     * Пример построения телефонной книги и вывод Дженни
+     */
+    void hashTablePhoneBook() {
+        Map<String, Integer> phoneBook = new HashMap<>();
+
+        phoneBook.put("jenny", 8675309);
+        phoneBook.put("kent", 8675310); // это будет заменить предыдущее значение
+
+        Integer phoneNumber = phoneBook.get("jenny");
+
+        System.out.println(phoneNumber); // выведет 8675309
+    }
+
+    /**
+     * Метод проверки пользователя
+     */
+    public static void checkVoter(String name) {
+        Map<String, Boolean> voted = new HashMap<>();
+        if (voted.containsKey(name) && voted.get(name)) {
+            System.out.println("kick");
+        } else {
+            voted.put(name, true);
+            System.out.println("let");
+        }
+    }
+
+    /**
+     * Проверка - хранится ли страница в Хеше
+     */
+    public static String getPage(String url) {
+        Map<String, String> cache = new HashMap<>();
+        if (cache.containsKey(url)) {
+            return cache.get(url);
+        } else {
+            String data = getDataFromServer(url);
+            cache.put(url, data);
+            return data;
+        }
+    }
+    private static String getDataFromServer(String url) {
+        // реализация метода для получения данных с сервера
+        return url;
+    }
+
+
+
 }

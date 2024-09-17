@@ -1,4 +1,4 @@
-package org.example.grokkaiAlgorithms.grokkai2_3;
+package org.example.grokkaiAlgorithms.chapter_second.grokkai2_3;
 
 public class Grokkai2_3 {
     public static void main(String[] args) {

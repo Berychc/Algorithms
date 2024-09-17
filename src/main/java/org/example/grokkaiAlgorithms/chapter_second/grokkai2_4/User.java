@@ -1,4 +1,4 @@
-package org.example.grokkaiAlgorithms.grokkai2_4;
+package org.example.grokkaiAlgorithms.chapter_second.grokkai2_4;
 
 public class User {
     private String username;
