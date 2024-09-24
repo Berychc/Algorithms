@@ -3,6 +3,7 @@ package org.example.aglorithms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import java.util.List;
 
 public class AlgorithmsFirstPage {
@@ -336,5 +337,6 @@ public class AlgorithmsFirstPage {
         array = myList.toArray(array);
         return array;
     }
+
 
  }
