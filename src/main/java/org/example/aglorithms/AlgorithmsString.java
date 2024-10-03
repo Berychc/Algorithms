@@ -231,6 +231,38 @@ public class AlgorithmsString {
         return str.substring(2) + str.substring(0, 2);
     }
 
+    /**
+     *
+     Given a string, return a version without both the first and last char of the string.
+     The string may be any length, including 0.
+
+     withoutEnd2("Hello") → "ell"
+     withoutEnd2("abc") → "b"
+     withoutEnd2("ab") → ""
+     */
+    public String withoutEnd2(String str) {
+        if (str.length() < 2) {
+            return "";
+        }
+        return str.substring(1, str.length() - 1);
+    }
+
+    /**
+     *
+     Given a string and an int n, return a string made of the first and last n chars from the string.
+     The string length will be at least n.
+
+     nTwice("Hello", 2) → "Helo"
+     nTwice("Chocolate", 3) → "Choate"
+     nTwice("Chocolate", 1) → "Ce"
+     */
+    public String nTwice(String str, int n) {
+        String firstN = str.substring(0, n);
+        String lastN = str.substring(str.length() - n);
+        return firstN + lastN;
+    }
+
+
 
 
 }
