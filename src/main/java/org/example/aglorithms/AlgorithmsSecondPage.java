@@ -173,4 +173,23 @@ public class AlgorithmsSecondPage {
         }
         return new int[0];
     }
+
+    // Удаление дубликатов в строке
+    static String removeDuplicatiesString(String s) {
+        if (s.isEmpty()) {
+            throw new NullPointerException("Пустая строка");
+        }
+
+        HashSet<Character> seen = new HashSet<>();
+        StringBuilder result = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            if (seen.add(c)) {
+                result.append(c);
+            }
+        }
+        return result.toString();
+    }
+
+
 }
