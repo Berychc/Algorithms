@@ -121,19 +121,20 @@ public class AlgorithmsSecondPage {
 
 
     // Удалить дубликаты из отсортированного массива
-    public int removeDuplicates(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+    public int[] deleteDuplicates(int[] array) {
+        if (array.length == 0) {
+            throw new RuntimeException("Пустой массив");
         }
+        Arrays.sort(array); // сортировка списка
+        int count = 1; // счетчик уникальных элементов
 
-        int count = 1;
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] != nums[count - 1]) { // проверка на дубликаты
-                nums[count] = nums[i]; // сохраняем уникальный элемент
+        for (int i = 1; i < array.length; i++) { // начало с 1
+            if (array[i] != array[count - 1]) { // проверка дубликатов
+                array[count] = array[i];
                 count++;
             }
         }
-        return count;
+        return Arrays.copyOf(array, count); // Возвращаем новый массив с уникальными элементами
     }
 
     // удалить дубликаты листа
