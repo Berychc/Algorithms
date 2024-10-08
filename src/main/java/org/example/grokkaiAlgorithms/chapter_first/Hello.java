@@ -2,10 +2,7 @@ package org.example.grokkaiAlgorithms.chapter_first;
 
 public class Hello {
 
-    public static int binarySearch() {
-        String[] names = new String[128];
-        String target = "Veselov";
-
+    public static int binarySearch(String[] names, String target) {
         int low = 0;
         int high = names.length - 1;
         int count = 0;
