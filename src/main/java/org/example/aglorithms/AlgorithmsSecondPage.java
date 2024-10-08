@@ -192,4 +192,43 @@ public class AlgorithmsSecondPage {
     }
 
 
+    // Объединение двух строк в двоичный файл
+    static String addBinary(String a, String b) {
+        char[] charsA = a.toCharArray();
+        char[] charsB = b.toCharArray();
+
+        int result = 0, readerA = charsA.length - 1, readerB = charsB.length - 1;
+        StringBuilder sb = new StringBuilder();
+
+        while (readerA >= 0 && readerB >= 0) {
+            int aa = charsA[readerA] - '0', bb = charsB[readerB] - '0', sum = aa + bb + result;
+            result = sum / 2;
+            sb.append(sum % 2);
+
+            readerA--;
+            readerB--;
+        }
+
+        while (readerA >= 0) {
+            int aa = charsA[readerA] - '0';
+            int sum = aa + result;
+            result = sum / 2;
+            sb.append(sum % 2);
+            readerA--;
+        }
+
+        while (readerB >= 0) {
+            int bb = charsB[readerB] - '0';
+            int sum = bb + result;
+            result = sum / 2;
+            sb.append(sum % 2);
+            readerB--;
+        }
+
+        if (result != 0) {
+            sb.append(result);
+        }
+
+        return sb.reverse().toString();
+    }
 }
