@@ -579,6 +579,4 @@ public class AlgorithmsString {
         }
         return result.toString();
     }
-
-
 }
