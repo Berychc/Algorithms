@@ -4,10 +4,9 @@ public class Sort {
 
 
     // Сортировка пузырьком
-    private static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
+    private static int[] bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
@@ -15,14 +14,14 @@ public class Sort {
                 }
             }
         }
+        return arr;
     }
 
     // Сортировка выбором
-    private static void selectionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
+    private static int[] selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
@@ -32,12 +31,12 @@ public class Sort {
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
+        return arr;
     }
 
     // Сортировка вставками
-    private static void insertionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
+    private static int[] insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
             int j = i - 1;
             while (j >= 0 && arr[j] > key) {
@@ -46,6 +45,7 @@ public class Sort {
             }
             arr[j + 1] = key;
         }
+        return arr;
     }
 
     // Быстрая сортировка
