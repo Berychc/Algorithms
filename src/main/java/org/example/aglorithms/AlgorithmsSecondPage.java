@@ -231,4 +231,32 @@ public class AlgorithmsSecondPage {
 
         return sb.reverse().toString();
     }
+
+    public static boolean hasCycle(LinkedList<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return false;
+        }
+
+        ListIterator<Integer> slow = list.listIterator();
+        ListIterator<Integer> fast = list.listIterator();
+
+        // Начинаем с первого элемента
+        if (fast.hasNext()) fast.next();
+        if (fast.hasNext()) fast.next();
+
+        while (fast.hasNext() && slow.hasNext()) {
+            // Медленный указатель двигается на один элемент
+            slow.next();
+
+            // Быстрый указатель двигается на два элемента
+            fast.next();
+            if (fast.hasNext()) fast.next();
+
+            // Если они встретились, значит, цикл есть
+            if (slow.equals(fast)) {
+                return true;
+            }
+        }
+        return false; // Цикла нет
+    }
 }
