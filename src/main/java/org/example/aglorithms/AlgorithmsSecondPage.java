@@ -15,7 +15,7 @@ public class AlgorithmsSecondPage {
         System.out.println("b = " + b);
     }
 
-
+// Условие: Нужен метод, который выводит первые N чисел последовательности Фибоначчи.
     public int fibonacciRecursive(int n) {
         if (n <= 1) {
             return n;

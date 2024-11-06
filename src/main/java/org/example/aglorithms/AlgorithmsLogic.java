@@ -251,4 +251,15 @@ public class AlgorithmsLogic {
         return Math.min(left, timeToFallRight);
     }
 
+    public static int proveEquation(int a, int b) {
+        // Вводим переменную y и делаем "манипуляцию"
+        int y = a - b;  // y будет 3
+        y = y + 1;      // здесь добавляем 1, чтобы получить 4
+        return y;       // возвращаем значение 4
+    }
+
+    private static String proveThat(String five) {
+        return five.substring(five.length() / 2 - 1, five.length() / 2 + 1);
+    }
+
 }
