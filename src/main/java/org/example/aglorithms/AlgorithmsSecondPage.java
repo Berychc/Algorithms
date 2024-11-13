@@ -177,7 +177,7 @@ public class AlgorithmsSecondPage {
     // Удаление дубликатов в строке
     static String removeDuplicatiesString(String s) {
         if (s.isEmpty()) {
-            throw new NullPointerException("Пустая строка");
+            throw new NullPointerException(String.format("Пустая строка %d", s));
         }
 
         HashSet<Character> seen = new HashSet<>();
