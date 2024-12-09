@@ -1,5 +1,7 @@
 package org.example.grokkaiAlgorithms.chapter_first;
 
+import java.util.HashSet;
+
 public class Hello {
 // remake
     public static int binarySearch(String[] names, String target) {
@@ -102,5 +104,21 @@ public class Hello {
                 System.out.println("Phone number: " + parts[1]);
             }
         }
+    }
+
+    /**
+     * Удаление дубликатов строки
+     */
+    private String deleteDuplicaties(String array) {
+        if (array.isEmpty()) return String.format("%s - Пустая строка", array);
+
+        HashSet<Character> seen = new HashSet<>();
+        StringBuilder arr = new StringBuilder();
+        for (char chars : array.toCharArray()) {
+            if (seen.add(chars)) {
+                arr.append(chars);
+            }
+        }
+        return array;
     }
 }
